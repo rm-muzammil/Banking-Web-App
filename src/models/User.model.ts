@@ -9,6 +9,7 @@ export interface IUser extends mongoose.Document {
     account: mongoose.Types.ObjectId | IAccount;
     createdAt: Date;
     updatedAt: Date;
+
 }
 const UserSchema = new mongoose.Schema<IUser>(
     {
