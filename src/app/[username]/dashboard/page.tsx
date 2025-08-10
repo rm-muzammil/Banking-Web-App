@@ -1,8 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function DashboardPage() {
+  const router = useRouter();
   const [data, setData] = useState<{
     username?: string;
     accountNumber?: string;
@@ -24,6 +26,10 @@ export default function DashboardPage() {
 
   if (loading) return <p>Loading...</p>;
   if (!data) return <p>No data found</p>;
+  const handleLogout = async () => {
+    await fetch("/api/users/logout", { method: "POST" });
+    router.push("/login");
+  };
 
   return (
     <div className="p-6">
@@ -32,6 +38,7 @@ export default function DashboardPage() {
         <h2 className="text-lg font-semibold">Account Info</h2>
         <p>Account Number: {data.accountNumber}</p>
       </div>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }

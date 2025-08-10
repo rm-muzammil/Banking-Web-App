@@ -6,10 +6,11 @@ import User, { IUser } from "@/models/User.model";
 import { IAccount } from "@/models/Account.model";
 type IUserPopulated = Omit<IUser, "account"> & { account: IAccount };
 
-connectToDB();
+
 
 export async function GET(req: NextRequest) {
     try {
+        await connectToDB();
         const token = req.cookies.get("token")?.value;
         if (!token) {
             return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

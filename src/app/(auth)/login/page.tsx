@@ -1,12 +1,23 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ProgressToast from "@/components/ui/ProgressToast";
 import { useRouter } from "next/navigation";
-
 function page() {
   const router = useRouter();
+
+  useEffect(() => {
+    async function checkToken() {
+      const res = await fetch("/api/users/me");
+      if (res.ok) {
+        const data = await res.json();
+        router.push(`/${data.username}/dashboard`);
+      }
+    }
+    checkToken();
+  }, [router]);
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
