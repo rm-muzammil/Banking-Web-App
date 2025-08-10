@@ -1,11 +1,12 @@
 import mongoose from "mongoose";
+import { IAccount } from "./Account.model";
 export interface IUser extends mongoose.Document {
     _id: mongoose.Types.ObjectId;
     username: string;
     email: string;
     password: string;
     role: "USER" | "ADMIN";
-    account: mongoose.Types.ObjectId;
+    account: mongoose.Types.ObjectId | IAccount;
     createdAt: Date;
     updatedAt: Date;
 }
