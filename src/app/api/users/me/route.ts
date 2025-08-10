@@ -19,7 +19,7 @@ export async function GET(req: NextRequest) {
         const decoded = jwt.verify(token, process.env.TOKEN_SECRET!) as { id: string };
 
         const user: IUserPopulated | null = await User.findById(decoded.id)
-            .populate<{ account: IAccount }>("account", "accountNumber")
+            .populate<{ account: IAccount }>("account", "accountNumber balance")
             .select("username account");
 
         if (!user) {
@@ -29,6 +29,7 @@ export async function GET(req: NextRequest) {
         return NextResponse.json({
             username: user.username,
             accountNumber: user.account ? user.account.accountNumber : "No account assigned",
+            balance: user.account?.balance ?? 0
         });
 
     } catch (error: any) {
