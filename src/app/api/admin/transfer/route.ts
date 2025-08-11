@@ -19,6 +19,8 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "Forbidden" }, { status: 403 });
         }
         const { fromAccountNumber, toAccountNumber, amount } = await req.json();
+        console.log(fromAccountNumber, toAccountNumber, amount);
+
         if (!fromAccountNumber || !toAccountNumber || !amount || amount <= 0) {
             return NextResponse.json({ error: "Invalid transfer details" }, { status: 400 });
         }
@@ -27,7 +29,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({ error: "Invalid sender account" })
 
         }
-        const receiverAccount = await Account.findOne({ accountNumber: toAccountNumber }).populate("onwer")
+        const receiverAccount = await Account.findOne({ accountNumber: toAccountNumber }).populate("owner")
         if (!receiverAccount) {
             return NextResponse.json({ error: "Invalid receiver account" })
         }
