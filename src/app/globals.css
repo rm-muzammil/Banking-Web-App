@@ -2,37 +2,33 @@
 
 :root {
   /* Light Theme */
-
-/* --button-hover: #1e40af; */
---background-main: #ffffff;      /* whole page background */
-  --background-surface: #666c71;   /* navbar, cards, sections */
+  --bg-main: #dbe0e5;      /* whole page background - soft white */
+  --bg-surface: #ffffff;   /* navbar, cards, sections - pure white */
 
   /* Text Colors */
-  --foreground-primary: #111827;   /* main text */
-  --foreground-secondary: #6b7280; /* muted text */
+  --fg-primary: #0f172a;   /* dark navy text for better contrast */
+  --fg-secondary: #475569; /* muted slate text */
 
   /* Accent Colors */
-  --primary: #2563eb;      /* buttons, links */
+  --primary: #2563eb;      /* buttons, links - bright blue */
   --primary-hover: #1d4ed8;
 
-  --secondary: #9333ea;    /* secondary buttons */
+  --secondary: #9333ea;    /* purple accent */
   --secondary-hover: #7e22ce;
 
   /* Borders & dividers */
-  --border-color: #e5e7eb;
-
-  /* Add other variables... */
+  --border-color: #e2e8f0; /* light gray border */
 }
 
 .dark {
   /* Dark Theme */
 
 --button-hover: #2563eb;
- --background-main: #0f172a;
-  --background-surface: #1e293b;
+ --bg-main: #0f172a;
+  --bg-surface: #1e293b;
 
-  --foreground-primary: #f9fafb;
-  --foreground-secondary: #94a3b8;
+  --fg-primary: #f9fafb;
+  --fg-secondary: #94a3b8;
 
   --primary: #60a5fa;
   --primary-hover: #3b82f6;
@@ -46,8 +42,8 @@
 }
 
 body {
-  background-color: var(--background-main);
-  color: var(--foreground-primary);
+  background-color: var(--bg-main);
+  color: var(--fg-primary);
   transition: background-color 0.3s, color 0.3s;
 }
 
