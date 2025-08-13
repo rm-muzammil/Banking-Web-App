@@ -56,4 +56,4 @@ const authConfig = NextAuth({
     secret: process.env.NEXTAUTH_SECRET
 })
 export default authConfig;
-export const { handlers: { GET, POST }, auth, signIn, signOut } = authConfig;
+// export const { handlers: { GET, POST }, auth, signIn, signOut } = authConfig;
