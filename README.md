@@ -6,3 +6,4 @@
 // v-0.1.5 admin dashboard (working)
 // v-0.1.6 basic version done (working)
 // v-0.1.7 Theme Config
+// v-1 basic version of site complete

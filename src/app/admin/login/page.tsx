@@ -27,15 +27,19 @@ export default function LoginPage() {
 
   const handleLogin = async () => {
     try {
-      const res = await axios.post("/api/users/login", formData);
+      await axios.post("/api/users/login", formData);
       toast.custom(() => <ProgressToast message="Login Successful" />, {
         duration: 5000,
       });
       router.push("/admin/dashboard");
       setFormData({ email: "", password: "" });
-    } catch (error: any) {
-      const serverMessage =
-        error.response?.data?.error || "Something went wrong";
+    } catch (error) {
+      let serverMessage = "something went wrong";
+      if (error instanceof Error && "response" in error) {
+        const err = error as { response?: { data?: { error?: string } } };
+        serverMessage = err.response?.data?.error || serverMessage;
+      }
+
       toast.custom(() => <ProgressToast message={serverMessage} />, {
         duration: 5000,
       });

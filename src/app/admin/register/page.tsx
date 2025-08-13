@@ -29,9 +29,13 @@ export default function AdminRegisterPage() {
 
       // Redirect to admin login
       router.push("/admin/login");
-    } catch (error: any) {
-      const serverMessage =
-        error.response?.data?.error || "Something went wrong";
+    } catch (error) {
+      let serverMessage = "something went wrong";
+      if (error instanceof Error && "response" in error) {
+        const err = error as { response?: { data?: { error?: string } } };
+        serverMessage = err.response?.data?.error || serverMessage;
+      }
+
       toast.custom(() => <ProgressToast message={serverMessage} />, {
         duration: 5000,
       });
