@@ -5,7 +5,7 @@ import { connectToDB } from "./db";
 import bcrypt from "bcryptjs";
 
 
-export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
+const authConfig = NextAuth({
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -55,3 +55,5 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     },
     secret: process.env.NEXTAUTH_SECRET
 })
+export default authConfig;
+export const { handlers: { GET, POST }, auth, signIn, signOut } = authConfig;
