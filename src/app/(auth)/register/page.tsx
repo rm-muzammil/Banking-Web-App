@@ -16,7 +16,7 @@ export default function RegisterPage() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:3000/api/users/register", formData);
+      await axios.post("/api/users/register", formData);
 
       toast.custom(() => <ProgressToast message="Registration Successful" />, {
         duration: 5000,

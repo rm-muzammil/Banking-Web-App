@@ -18,7 +18,7 @@ export default function AdminRegisterPage() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("http://localhost:3000/api/users/register", formData);
+      await axios.post("/api/users/register", formData);
 
       toast.custom(
         () => <ProgressToast message="Admin Registration Successful" />,
