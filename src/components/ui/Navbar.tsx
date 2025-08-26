@@ -17,10 +17,24 @@ function Navbar() {
           <Link href={"/about"}>About</Link>
           <Link href={"/services"}>Services</Link>
         </div>
-
-        <button onClick={toggleTheme}>
-          {theme === "light" ? "Dark" : "Light"}
-        </button>
+        <div className="flex items-center gap-[1rem]">
+          <Link
+            className={`bg-red-500 border border-[var(--border-color)] px-4 py-2 rounded-lg`}
+            href={"/login"}
+          >
+            Login
+          </Link>
+          <button
+            className={`${
+              theme === "light"
+                ? "bg-gray-800 text-white"
+                : "bg-white text-gray-800"
+            } border border-[var(--border-color)] px-4 py-2 rounded-lg`}
+            onClick={toggleTheme}
+          >
+            {theme === "light" ? "Dark" : "Light"}
+          </button>
+        </div>
       </div>
     </div>
   );

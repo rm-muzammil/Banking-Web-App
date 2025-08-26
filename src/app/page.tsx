@@ -23,7 +23,10 @@ export default function Home() {
         <p className="text-[var(--fg-secondary)] max-w-2xl mx-auto">
           Your trusted partner for secure and modern banking solutions.
         </p>
-        <button className="mt-6 px-6 py-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white rounded-lg">
+        <button
+          onClick={() => router.push("/register")}
+          className="mt-6 px-6 py-3 bg-[var(--primary)] hover:bg-[var(--primary-hover)] text-white rounded-lg"
+        >
           Get Started
         </button>
       </section>

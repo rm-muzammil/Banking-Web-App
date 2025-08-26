@@ -34,7 +34,7 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[var(--bg-main)] px-4">
+    <main className="min-h-full mt-[5rem] flex items-center justify-center bg-[var(--bg-main)] px-4">
       <div className="bg-[var(--bg-surface)] w-full max-w-md rounded-2xl shadow-lg p-8">
         {/* Title */}
         <h2 className="text-3xl font-bold text-center mb-2 text-[var(--fg-primary)]">
